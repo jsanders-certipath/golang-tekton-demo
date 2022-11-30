@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: golang-hello-world
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: golang-hello-world
+    spec:
+      containers:
+      - name: golang-hello-world
+        # Replace with your docker registry info
+        image: hub.docker.com/kronos23/golang-hello-world:v1.0.0
+        ports:
+        - name: http
+          containerPort: 8000
+        env:
+        - name: PORT
+          value: "8000"
+        resources:
+          limits:
+            cpu: "0.1"
+            memory: 100Mi
