@@ -17,7 +17,7 @@ spec:
       - name: argo-combined-app
         image: kronos23/golang-hello-world:develop.1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /api/v1/health
