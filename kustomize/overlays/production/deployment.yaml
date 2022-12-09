@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-combined-app
+  labels:
+    app: argo-combined-app
+spec:
+  selector:
+    matchLabels:
+      app: argo-combined-app
+  template:
+    metadata:
+      labels:
+        app: argo-combined-app
+    spec:
+      containers:
+      - name: argo-combined-app
+        image: kronos23/golang-hello-world:develop.1
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /api/v1/health
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /api/v1/health
+            port: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 80m
+            memory: 128Mi
