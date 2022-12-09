@@ -18,5 +18,5 @@ spec:
           service:
            name: argo-combined-app
            port:
-             number: 80
-    host: staging.golang-hello-world.example.com
+             number: 8080
+    host: production.golang-hello-world.example.com
