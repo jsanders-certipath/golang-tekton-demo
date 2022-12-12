@@ -16,16 +16,14 @@ spec:
     - destination:
         host: argo-combined-app
         port:
-          number: 80
+          number: 8080
       weight: 100
     - destination:
         host: argo-combined-app-canary
         port:
-          number: 80
+          number: 8080
       weight: 0
-
 ---
-
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -35,7 +33,7 @@ spec:
     istio: ingressgateway
   servers:
   - port:
-      number: 80
+      number: 8080
       name: http
       protocol: HTTP
     hosts:
