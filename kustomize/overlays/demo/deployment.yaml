@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argo-combined-app
+  name: golang-hello-world-demo
   labels:
-    app: argo-combined-app
+    app: golang-hello-world
 spec:
   selector:
     matchLabels:
-      app: argo-combined-app
+      app: golang-hello-world
   template:
     metadata:
       labels:
-        app: argo-combined-app
+        app: golang-hello-world
     spec:
       containers:
-      - name: argo-combined-app
+      - name: golang-hello-world
         image: kronos23/golang-hello-world:develop.1
         ports:
         - containerPort: 8080

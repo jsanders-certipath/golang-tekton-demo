@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argo-combined-app
+  name: golang-hello-world-demo
   annotations:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -16,7 +16,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-           name: argo-combined-app
+           name: golang-hello-world
            port:
              number: 8080
     host: demo.golang-hello-world.example.com
